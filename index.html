@@ -334,20 +334,72 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
 
 <script>
 const NEWS=[
-  {cat:'Report Release',title:'Turkey Provincial Economic Performance Report Series Published',date:'March 2026',body:'<p>A comprehensive analysis series comparing the resource quality, performance and transformation efficiency of all 81 provinces using original indices is now available.</p><p>Each provincial report, prepared on the basis of the RQI, PI, TEI and Pragmatism Indices, includes demographic analysis, sectoral typology and institutional quality assessment.</p>',link:'raporlar.html',linkText:'View Reports'},
-  {cat:'Analysis',title:"Turkey's Global Opening in the Globalisation Era",date:'December 2025',body:"<p>Turkey's growth, volatility and FDI performance during 2016–2024 was compared against 23 emerging market economies on the MSC-EM list.</p><p>Turkey ranked 8th in average growth while placing 2nd in volatility.</p>",link:'#',linkText:'View Report'},
-  {cat:'Announcement',title:'Sectoral Transformation Index Study Launched',date:'February 2026',body:"<p>A new index study has been launched to measure Turkey's sector-based technology intensity, export capability and competitiveness.</p><p>Publication is planned for the second quarter of 2026.</p>",link:'#',linkText:'Coming Soon'},
-  {cat:'Event',title:'Gulf Countries Investment Forum Participation',date:'January 2026',body:'<p>Panel participation was completed at an international forum on localisation policies and foreign direct investment in GCC countries.</p>',link:'',linkText:''}
+  {cat:'Report Release',title:'Turkey Provincial Economic Performance Report Series Published',date:'March 2026',excerpt:'A comprehensive economic analysis series covering all 81 provinces with original indices is now available.',body:`<p>A comprehensive analysis series comparing the resource quality, performance and transformation efficiency of all 81 provinces using original indices is now available.</p><p>Each provincial report, prepared on the basis of the RQI, PI, TEI and Pragmatism Indices, includes demographic analysis, sectoral typology and institutional quality assessment.</p>`,link:'raporlar.html',linkText:'View Reports'},
+  {cat:'Analysis',title:`Turkey's Global Opening in the Globalisation Era`,date:'December 2025',excerpt:'MSC-EM 23-country comparison — growth, volatility and FDI performance 2016–2024.',body:`<p>Turkey's growth, volatility and FDI performance during 2016–2024 was compared against 23 emerging market economies on the MSC-EM list.</p><p>Turkey ranked 8th in average growth while placing 2nd in volatility.</p>`,link:'#',linkText:'View Report'},
+  {cat:'Announcement',title:'Sectoral Transformation Index Study Launched',date:'February 2026',excerpt:`New research on Turkey's sector-based technology intensity and export capability is underway.`,body:`<p>A new index study has been launched to measure Turkey's sector-based technology intensity, export capability and competitiveness.</p><p>Publication is planned for the second quarter of 2026.</p>`,link:'#',linkText:'Coming Soon'},
+  {cat:'Event',title:'Gulf Countries Investment Forum Participation',date:'January 2026',excerpt:'Panel participation on localisation policies and foreign direct investment in GCC countries.',body:`<p>Panel participation was completed at an international forum on localisation policies and foreign direct investment in GCC countries.</p>`,link:'',linkText:''}
 ];
 
+const NEWS_TR=[
+  {cat:'Rapor Duyurusu',title:'Türkiye İl Ekonomik Performans Raporu Serisi Yayımlandı',date:'Mart 2026',excerpt:'81 il için özgün endekslerle hazırlanan kapsamlı ekonomik analiz serisi kullanıma sunuldu.',body:`<p>81 ilin kaynak kalitesi, performans ve dönüşüm verimliliğini özgün endekslerle karşılaştıran kapsamlı analiz serisi kullanıma sunuldu.</p><p>KKE, PE, DVE ve Pragmatizm Endeksleri temelinde hazırlanan her il raporu; demografik analiz, sektörel tipoloji ve kurumsal kalite değerlendirmesi içermektedir.</p>`,link:'raporlar.html',linkText:'Raporları İncele'},
+  {cat:'Analiz',title:`Türkiye'nin Küreselleşmedeki Dışa Açılımı`,date:'Aralık 2025',excerpt:`MSC-EM 23 ülke karşılaştırması — büyüme, volatilite ve FDI performansı 2016–2024.`,body:`<p>MSC-EM listesindeki 23 gelişmekte olan piyasa ekonomisi arasında Türkiye'nin 2016–2024 dönemindeki büyüme, volatilite ve FDI performansı karşılaştırıldı.</p><p>Türkiye ortalama büyümede 8. sırada yer alırken volatilitede 2. sıraya yerleşti.</p>`,link:'#',linkText:'Raporu İncele'},
+  {cat:'Duyuru',title:`Sektörel Dönüşüm Endeksi Çalışması Başladı`,date:'Şubat 2026',excerpt:`Türkiye'nin sektör bazlı teknoloji yoğunluğu ve ihracat kabiliyeti üzerine yeni araştırma.`,body:`<p>Türkiye'nin sektör bazlı teknoloji yoğunluğu, ihracat kabiliyeti ve rekabet gücünü ölçen yeni bir endeks çalışması başlatıldı.</p><p>2026 yılı ikinci çeyreğinde yayımlanması planlanmaktadır.</p>`,link:'#',linkText:'Yakında'},
+  {cat:'Etkinlik',title:`Körfez Ülkeleri Yatırım Forumu Katılımı`,date:'Ocak 2026',excerpt:`GCC ülkelerinde yerelleşme ve doğrudan yabancı yatırım üzerine panel katılımı.`,body:`<p>GCC ülkelerinde yerelleşme politikaları ve doğrudan yabancı yatırım üzerine düzenlenen uluslararası foruma panel katılımı gerçekleştirildi.</p>`,link:'',linkText:''}
+];
+
+const TR={
+  eyebrow:'Uluslararası İş Geliştirme &nbsp;·&nbsp; Uygulamalı Ekonomist',
+  hero:`Aksaklık bir istisna değil, piyasaların yaygın gerçeğidir.<br><span>Sorun piyasa aksaklığı değil, bununla büyümektir.</span>`,
+  newsLabel:'Haberler &amp; Duyurular', newsAll:'Tümü →',
+  tagNedir:'Ekosistem', titleNedir:'Aksak Dünya Nedir?',
+  ndp1:`Aksak Dünya <strong>küresel bir iş birliği ağıdır.</strong> Bilgi ve erişim zorluklarından doğan piyasa aksaklıklarını izler; bu aksaklıkların yarattığı ticaret ve yatırım fırsatlarını tespit eder.`,
+  ndp2:`Arz ve talep taraflarına kendi networküyle ulaşır, onları net iş amaçları (yatırım, ticaret, işbirliği) doğrultusunda birbirine bağlar ve süreci operasyonel detaylara girmeden yönetir.`,
+  ndp3:`Aksak Dünya net tanımlanmış hedefler ve <strong>6–12 aylık kontratlarla</strong> çalışır. Aylık sabit bir servis bedeli ve başarı durumunda değer üzerinden prim alır. Körfez ağırlıklı olmak üzere <strong>MENA bölgesi, Türk Cumhuriyetleri ve Doğu Avrupa</strong>'da aktif ağlarla çalışır.`,
+  sl2:`Aksak <b style="color:var(--red)">Dünya</b>`, st2:'Uluslararası İş Geliştirme Networkü',
+  sl1:'Talep Tarafı', st1:`Yatırım · Mal<br>Hizmet · İşbirliği`, ss1:`Firmalar<br>Devlet Kurumları`,
+  sl3:'Arz Tarafı', st3:`Yatırım · Mal<br>Hizmet · İşbirliği`, ss3:`Firmalar<br>Devlet Kurumları`,
+  tagHak:'Kurucu', titleHak:'Dr. Hakan Yurdakul',
+  htitle:'Uluslararası İş Geliştirici &nbsp;·&nbsp; Uygulamalı Ekonomist',
+  hp1:`Hakan Yurdakul, uluslararası ticaret ve yatırım süreçlerinde çalışan bir uygulamalı ekonomisttir. Deneyim ve ilişkileriyle Türkiye ve diğer ülkelerdeki özel sektör ve kamu sektörü unsurları ile çalışır. Karşılıklı ticaret, yatırım veya işbirliğini amaçlayan ticari iş geliştirme projeleri yürütür.`,
+  hp2:`Almanya, Azerbaycan, Birleşik Arap Emirlikleri, Bosna Hersek, Çek Cumhuriyeti, Irak, Kazakistan, Libya, Mısır, Romanya, Rusya, Suudi Arabistan, Suriye ve Sırbistan'da iş ortaklarıyla birlikte aktif olarak bulunuyor. Yaklaşık 30 yıllık deneyimiyle özel sektör ve kamu sektöründe üst düzey rollerde bulundu ve ağırlıklı olarak İstanbul'da yaşıyor.`,
+  sg1:'Endüstriyel &amp; Teknoloji', si1:`İlaç · İnşaat malzemeleri · Makine · Savunma (silah hariç) · Tıbbi cihaz ve sarf malzemeleri · Yazılım`,
+  sg2:'Tüketici &amp; Hizmet', si2:`Eğitim turizmi · Eğlence · FMCG · Gıda · Mobilya · Sağlık turizmi`,
+  sg3:'Altyapı &amp; Finans', si3:`Finans · İnşaat · Lojistik ve ulaşım`,
+  liLink:'LinkedIn Profili', contact:'İletişim', popupClose:'Kapat ✕', lang:'EN'
+};
+
+const EN={
+  eyebrow:'International Business Development &nbsp;·&nbsp; Applied Economist',
+  hero:`Imperfection is not an exception —<br>it is the pervasive reality of markets.<br><span>The problem is not market imperfection,<br>but not knowing how to grow within it.</span>`,
+  newsLabel:'News &amp; Announcements', newsAll:'All →',
+  tagNedir:'Ecosystem', titleNedir:'What is Aksak Dünya?',
+  ndp1:`Aksak Dünya is <strong>a global business collaboration network.</strong> It monitors market imperfections arising from information and access barriers, and identifies the trade and investment opportunities these imperfections create.`,
+  ndp2:`It reaches both supply and demand sides through its own network, connects them around clear business objectives (investment, trade, cooperation), and manages the process without getting involved in operational details.`,
+  ndp3:`Aksak Dünya works with clearly defined goals and <strong>6–12 month contracts.</strong> It charges a fixed monthly service fee and a success-based premium on value delivered. It operates through active networks primarily in the <strong>MENA region, Turkic Republics and Eastern Europe</strong>, with a Gulf-weighted focus.`,
+  sl2:`Aksak <b style="color:var(--red)">Dünya</b>`, st2:'International Business Development Network',
+  sl1:'Demand Side', st1:`Investment · Goods<br>Services · Cooperation`, ss1:`Companies<br>Government Entities`,
+  sl3:'Supply Side', st3:`Investment · Goods<br>Services · Cooperation`, ss3:`Companies<br>Government Entities`,
+  tagHak:'Founder', titleHak:'Dr. Hakan Yurdakul',
+  htitle:'International Business Developer &nbsp;·&nbsp; Applied Economist',
+  hp1:`Hakan Yurdakul is an applied economist working in international trade and investment. Drawing on his experience and relationships, he works with private and public sector entities in Turkey and abroad on commercial business development projects aimed at mutual trade, investment, or cooperation.`,
+  hp2:`He is actively present with business partners in Azerbaijan, Bosnia and Herzegovina, Czech Republic, Egypt, Germany, Iraq, Kazakhstan, Libya, Romania, Russia, Saudi Arabia, Serbia, Syria, and United Arab Emirates. With nearly 30 years of experience, he has held senior positions in both the private and public sectors and is based primarily in Istanbul.`,
+  sg1:'Industrial &amp; Technology', si1:`Pharmaceuticals · Construction materials · Machinery · Defence (excl. weapons) · Medical devices &amp; consumables · Software`,
+  sg2:'Consumer &amp; Services', si2:`Education tourism · Entertainment · FMCG · Food · Furniture · Medical tourism`,
+  sg3:'Infrastructure &amp; Finance', si3:`Finance · Construction · Logistics &amp; transportation`,
+  liLink:'LinkedIn Profile', contact:'Contact', popupClose:'Close ✕', lang:'TR'
+};
+
+// ── POPUP ─────────────────────────────────────────────────
+let currentLang = 'TR';
+
 function openPopup(i){
-  const d=NEWS[i];
-  document.getElementById('popup-cat').textContent=d.cat;
-  document.getElementById('popup-title').textContent=d.title;
-  document.getElementById('popup-date').textContent=d.date;
-  document.getElementById('popup-body').innerHTML=d.body;
-  const lnk=document.getElementById('popup-link');
-  if(d.link&&d.linkText){lnk.href=d.link;lnk.textContent=d.linkText;lnk.style.display='inline-flex';}
+  const d = currentLang === 'TR' ? NEWS_TR[i] : NEWS[i];
+  document.getElementById('popup-cat').textContent = d.cat;
+  document.getElementById('popup-title').textContent = d.title;
+  document.getElementById('popup-date').textContent = d.date;
+  document.getElementById('popup-body').innerHTML = d.body;
+  const lnk = document.getElementById('popup-link');
+  if(d.link && d.linkText){lnk.href=d.link; lnk.textContent=d.linkText; lnk.style.display='inline-flex';}
   else{lnk.style.display='none';}
   document.getElementById('popup-overlay').classList.add('open');
   document.body.style.overflow='hidden';
@@ -356,123 +408,63 @@ function closePopup(){document.getElementById('popup-overlay').classList.remove(
 function closePopupOutside(e){if(e.target===document.getElementById('popup-overlay'))closePopup();}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup();});
 
-const track=document.getElementById('news-track');
-const dots=document.querySelectorAll('.news-dot');
-let isDragging=false,startX=0,scrollLeft=0;
+// ── NEWS CAROUSEL ─────────────────────────────────────────
+const track = document.getElementById('news-track');
+const dots = document.querySelectorAll('.news-dot');
+let isDragging=false, startX=0, scrollLeft=0;
 track.addEventListener('mousedown',e=>{isDragging=true;startX=e.pageX-track.offsetLeft;scrollLeft=track.scrollLeft;track.style.cursor='grabbing';});
 ['mouseleave','mouseup'].forEach(ev=>track.addEventListener(ev,()=>{isDragging=false;track.style.cursor='grab';}));
 track.addEventListener('mousemove',e=>{if(!isDragging)return;e.preventDefault();track.scrollLeft=scrollLeft-(e.pageX-track.offsetLeft-startX);});
 track.addEventListener('scroll',()=>{const idx=Math.round(track.scrollLeft/302);dots.forEach((d,i)=>d.classList.toggle('active',i===idx));});
 function scrollToCard(i){track.scrollTo({left:i*302,behavior:'smooth'});}
 
-const TR={
-  eyebrow:'Uluslararası İş Geliştirme &nbsp;·&nbsp; Uygulamalı Ekonomist',
-  hero:'Aksaklık bir istisna değil, piyasaların yaygın gerçeğidir.<br><span>Sorun piyasa aksaklığı değil, bununla büyümektir.</span>',
-  newsLabel:'Haberler &amp; Duyurular',newsAll:'Tümü →',
-  tagNedir:'Ekosistem',titleNedir:'Aksak Dünya Nedir?',
-  ndp1:'Aksak Dünya <strong>küresel bir iş birliği ağıdır.</strong> Bilgi ve erişim zorluklarından doğan piyasa aksaklıklarını izler; bu aksaklıkların yarattığı ticaret ve yatırım fırsatlarını tespit eder.',
-  ndp2:'Arz ve talep taraflarına kendi networküyle ulaşır, onları net iş amaçları (yatırım, ticaret, işbirliği) doğrultusunda birbirine bağlar ve süreci operasyonel detaylara girmeden yönetir.',
-  ndp3:'Aksak Dünya net tanımlanmış hedefler ve <strong>6–12 aylık kontratlarla</strong> çalışır. Aylık sabit bir servis bedeli ve başarı durumunda değer üzerinden prim alır. Körfez ağırlıklı olmak üzere <strong>MENA bölgesi, Türk Cumhuriyetleri ve Doğu Avrupa</strong>'da aktif ağlarla çalışır.',
-  sl2:'Aksak <b style="color:var(--red)">Dünya</b>',st2:'Uluslararası İş Geliştirme Networkü',
-  sl1:'Talep Tarafı',st1:'Yatırım · Mal<br>Hizmet · İşbirliği',ss1:'Firmalar<br>Devlet Kurumları',
-  sl3:'Arz Tarafı',st3:'Yatırım · Mal<br>Hizmet · İşbirliği',ss3:'Firmalar<br>Devlet Kurumları',
-  tagHak:'Kurucu',titleHak:'Dr. Hakan Yurdakul',
-  htitle:'Uluslararası İş Geliştirici &nbsp;·&nbsp; Uygulamalı Ekonomist',
-  hp1:'Hakan Yurdakul, uluslararası ticaret ve yatırım süreçlerinde çalışan bir uygulamalı ekonomisttir. Deneyim ve ilişkileriyle Türkiye ve diğer ülkelerdeki özel sektör ve kamu sektörü unsurları ile çalışır. Karşılıklı ticaret, yatırım veya işbirliğini amaçlayan ticari iş geliştirme projeleri yürütür.',
-  hp2:"Almanya, Azerbaycan, Birleşik Arap Emirlikleri, Bosna Hersek, Çek Cumhuriyeti, Irak, Kazakistan, Libya, Mısır, Romanya, Rusya, Suudi Arabistan, Suriye ve Sırbistan'da iş ortaklarıyla birlikte aktif olarak bulunuyor. Yaklaşık 30 yıllık deneyimiyle özel sektör ve kamu sektöründe üst düzey rollerde bulundu ve ağırlıklı olarak İstanbul'da yaşıyor.",
-  sg1:'Endüstriyel &amp; Teknoloji',si1:'İlaç · İnşaat malzemeleri · Makine · Savunma (silah hariç) · Tıbbi cihaz ve sarf malzemeleri · Yazılım',
-  sg2:'Tüketici &amp; Hizmet',si2:'Eğitim turizmi · Eğlence · FMCG · Gıda · Mobilya · Sağlık turizmi',
-  sg3:'Altyapı &amp; Finans',si3:'Finans · İnşaat · Lojistik ve ulaşım',
-  liLink:'LinkedIn Profili',contact:'İletişim',popupClose:'Kapat ✕',lang:'EN'
-}
-const EN={
-  eyebrow:'International Business Development &nbsp;·&nbsp; Applied Economist',
-  hero:'Imperfection is not an exception —<br>it is the pervasive reality of markets.<br><span>The problem is not market imperfection,<br>but not knowing how to grow within it.</span>',
-  newsLabel:'News &amp; Announcements',newsAll:'All →',
-  tagNedir:'Ecosystem',titleNedir:'What is Aksak Dünya?',
-  ndp1:'Aksak Dünya is <strong>a global business collaboration network.</strong> It monitors market imperfections arising from information and access barriers, and identifies the trade and investment opportunities these imperfections create.',
-  ndp2:'It reaches both supply and demand sides through its own network, connects them around clear business objectives (investment, trade, cooperation), and manages the process without getting involved in operational details.',
-  ndp3:'Aksak Dünya works with clearly defined goals and <strong>6–12 month contracts.</strong> It charges a fixed monthly service fee and a success-based premium on value delivered. It operates through active networks primarily in the <strong>MENA region, Turkic Republics and Eastern Europe</strong>, with a Gulf-weighted focus.',
-  sl2:'Aksak <b style="color:var(--red)">Dünya</b>',st2:'International Business Development Network',
-  sl1:'Demand Side',st1:'Investment · Goods<br>Services · Cooperation',ss1:'Companies<br>Government Entities',
-  sl3:'Supply Side',st3:'Investment · Goods<br>Services · Cooperation',ss3:'Companies<br>Government Entities',
-  tagHak:'Founder',titleHak:'Dr. Hakan Yurdakul',
-  htitle:'International Business Developer &nbsp;·&nbsp; Applied Economist',
-  hp1:'Hakan Yurdakul is an applied economist working in international trade and investment. Drawing on his experience and relationships, he works with private and public sector entities in Turkey and abroad on commercial business development projects aimed at mutual trade, investment, or cooperation.',
-  hp2:'He is actively present with business partners in Azerbaijan, Bosnia and Herzegovina, Czech Republic, Egypt, Germany, Iraq, Kazakhstan, Libya, Romania, Russia, Saudi Arabia, Serbia, Syria, and United Arab Emirates. With nearly 30 years of experience, he has held senior positions in both the private and public sectors and is based primarily in Istanbul.',
-  sg1:'Industrial &amp; Technology',si1:'Pharmaceuticals · Construction materials · Machinery · Defence (excl. weapons) · Medical devices &amp; consumables · Software',
-  sg2:'Consumer &amp; Services',si2:'Education tourism · Entertainment · FMCG · Food · Furniture · Medical tourism',
-  sg3:'Infrastructure &amp; Finance',si3:'Finance · Construction · Logistics &amp; transportation',
-  liLink:'LinkedIn Profile',contact:'Contact',popupClose:'Close ✕',lang:'TR'
-}
-
-const NEWS_TR=[
-  {cat:'Rapor Duyurusu',title:'Türkiye İl Ekonomik Performans Raporu Serisi Yayımlandı',date:'Mart 2026',body:'<p>81 ilin kaynak kalitesi, performans ve dönüşüm verimliliğini özgün endekslerle karşılaştıran kapsamlı analiz serisi kullanıma sunuldu.</p><p>KKE, PE, DVE ve Pragmatizm Endeksleri temelinde hazırlanan her il raporu; demografik analiz, sektörel tipoloji ve kurumsal kalite değerlendirmesi içermektedir.</p>',link:'raporlar.html',linkText:'Raporları İncele'},
-  {cat:'Analiz',title:"Türkiye'nin Küreselleşmedeki Dışa Açılımı",date:'Aralık 2025',body:"<p>MSC-EM listesindeki 23 gelişmekte olan piyasa ekonomisi arasında Türkiye'nin 2016–2024 dönemindeki büyüme, volatilite ve FDI performansı karşılaştırıldı.</p><p>Türkiye ortalama büyümede 8. sırada yer alırken volatilitede 2. sıraya yerleşti.</p>",link:'#',linkText:'Raporu İncele'},
-  {cat:'Duyuru',title:'Sektörel Dönüşüm Endeksi Çalışması Başladı',date:'Şubat 2026',body:"<p>Türkiye'nin sektör bazlı teknoloji yoğunluğu, ihracat kabiliyeti ve rekabet gücünü ölçen yeni bir endeks çalışması başlatıldı.</p><p>2026 yılı ikinci çeyreğinde yayımlanması planlanmaktadır.</p>",link:'#',linkText:'Yakında'},
-  {cat:'Etkinlik',title:'Körfez Ülkeleri Yatırım Forumu Katılımı',date:'Ocak 2026',body:'<p>GCC ülkelerinde yerelleşme politikaları ve doğrudan yabancı yatırım üzerine düzenlenen uluslararası foruma panel katılımı gerçekleştirildi.</p>',link:'',linkText:''}
-];
-
-let lang='TR';
-function renderNews(newsArr){
-  const track=document.getElementById('news-track');
-  const cards=track.querySelectorAll('.news-card');
-  newsArr.forEach((d,i)=>{
-    const card=cards[i];
-    if(!card)return;
-    card.querySelector('.news-cat').textContent=d.cat;
-    card.querySelector('.news-title').textContent=d.title;
-    card.querySelector('.news-excerpt').textContent=d.excerpt||card.querySelector('.news-excerpt').textContent;
-    card.querySelector('.news-date').textContent=d.date;
-  });
-}
+// ── LANGUAGE TOGGLE ───────────────────────────────────────
 function toggleLang(){
-  lang=lang==='TR'?'EN':'TR';
-  const d=lang==='EN'?EN:TR;
-  document.documentElement.lang=lang==='EN'?'en':'tr';
-  document.getElementById('lang-btn').textContent=d.lang;
-  document.getElementById('h-eyebrow').innerHTML=d.eyebrow;
-  document.getElementById('h-main').innerHTML=d.hero;
-  document.getElementById('news-label').innerHTML=d.newsLabel;
-  document.getElementById('news-all').innerHTML=d.newsAll;
-  document.getElementById('tag-nedir').textContent=d.tagNedir;
-  document.getElementById('title-nedir').textContent=d.titleNedir;
-  document.getElementById('nd-p1').innerHTML=d.ndp1;
-  document.getElementById('nd-p2').innerHTML=d.ndp2;
-  document.getElementById('nd-p3').innerHTML=d.ndp3;
-  document.getElementById('sl2').innerHTML=d.sl2;
-  document.getElementById('st2').textContent=d.st2;
-  document.getElementById('sl1').textContent=d.sl1;
-  document.getElementById('st1').innerHTML=d.st1;
-  document.getElementById('ss1').innerHTML=d.ss1;
-  document.getElementById('sl3').textContent=d.sl3;
-  document.getElementById('st3').innerHTML=d.st3;
-  document.getElementById('ss3').innerHTML=d.ss3;
-  document.getElementById('tag-hakkinda').textContent=d.tagHak;
-  document.getElementById('title-hakkinda').textContent=d.titleHak;
-  document.getElementById('h-title').innerHTML=d.htitle;
-  document.getElementById('h-p1').textContent=d.hp1;
-  document.getElementById('h-p2').textContent=d.hp2;
-  document.getElementById('sg1').innerHTML=d.sg1;
-  document.getElementById('si1').textContent=d.si1;
-  document.getElementById('sg2').innerHTML=d.sg2;
-  document.getElementById('si2').textContent=d.si2;
-  document.getElementById('sg3').innerHTML=d.sg3;
-  document.getElementById('si3').textContent=d.si3;
-  document.getElementById('li-link').textContent=d.liLink;
-  document.getElementById('nav-contact').textContent=d.contact;
-  document.getElementById('popup-close-btn').textContent=d.popupClose;
+  currentLang = currentLang === 'TR' ? 'EN' : 'TR';
+  const d = currentLang === 'EN' ? EN : TR;
+  document.documentElement.lang = currentLang === 'EN' ? 'en' : 'tr';
+  document.getElementById('lang-btn').textContent = d.lang;
+  document.getElementById('h-eyebrow').innerHTML = d.eyebrow;
+  document.getElementById('h-main').innerHTML = d.hero;
+  document.getElementById('news-label').innerHTML = d.newsLabel;
+  document.getElementById('news-all').innerHTML = d.newsAll;
+  document.getElementById('tag-nedir').textContent = d.tagNedir;
+  document.getElementById('title-nedir').textContent = d.titleNedir;
+  document.getElementById('nd-p1').innerHTML = d.ndp1;
+  document.getElementById('nd-p2').innerHTML = d.ndp2;
+  document.getElementById('nd-p3').innerHTML = d.ndp3;
+  document.getElementById('sl2').innerHTML = d.sl2;
+  document.getElementById('st2').textContent = d.st2;
+  document.getElementById('sl1').textContent = d.sl1;
+  document.getElementById('st1').innerHTML = d.st1;
+  document.getElementById('ss1').innerHTML = d.ss1;
+  document.getElementById('sl3').textContent = d.sl3;
+  document.getElementById('st3').innerHTML = d.st3;
+  document.getElementById('ss3').innerHTML = d.ss3;
+  document.getElementById('tag-hakkinda').textContent = d.tagHak;
+  document.getElementById('title-hakkinda').textContent = d.titleHak;
+  document.getElementById('h-title').innerHTML = d.htitle;
+  document.getElementById('h-p1').textContent = d.hp1;
+  document.getElementById('h-p2').textContent = d.hp2;
+  document.getElementById('sg1').innerHTML = d.sg1;
+  document.getElementById('si1').textContent = d.si1;
+  document.getElementById('sg2').innerHTML = d.sg2;
+  document.getElementById('si2').textContent = d.si2;
+  document.getElementById('sg3').innerHTML = d.sg3;
+  document.getElementById('si3').textContent = d.si3;
+  document.getElementById('li-link').textContent = d.liLink;
+  document.getElementById('nav-contact').textContent = d.contact;
+  document.getElementById('popup-close-btn').textContent = d.popupClose;
   // Swap news cards
-  const newsData=lang==='EN'?NEWS:NEWS_TR;
-  const cards=document.getElementById('news-track').querySelectorAll('.news-card');
+  const newsData = currentLang === 'EN' ? NEWS : NEWS_TR;
+  const cards = track.querySelectorAll('.news-card');
   newsData.forEach((item,i)=>{
-    if(!cards[i])return;
-    cards[i].querySelector('.news-cat').textContent=item.cat;
-    cards[i].querySelector('.news-title').textContent=item.title;
-    cards[i].querySelector('.news-excerpt').textContent=item.excerpt||(item.body||'').replace(/<[^>]+>/g,'').substring(0,90)+'…';
-    cards[i].querySelector('.news-date').textContent=item.date;
+    if(!cards[i]) return;
+    cards[i].querySelector('.news-cat').textContent = item.cat;
+    cards[i].querySelector('.news-title').textContent = item.title;
+    cards[i].querySelector('.news-excerpt').textContent = item.excerpt;
+    cards[i].querySelector('.news-date').textContent = item.date;
   });
-});
 }
 </script>
 </body>
