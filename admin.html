@@ -202,12 +202,14 @@ textarea{min-height:100px}
         <input type="text" id="r-price" placeholder="1500">
       </div>
       <div>
-        <label>Purchase / Download Link</label>
-        <input type="text" id="r-link" placeholder="https://shopier.com/...">
+        <label>Shopier Ürün Linki</label>
+        <input type="text" id="r-link" placeholder="https://www.shopier.com/...">
+        <div class="form-note">Shopier'da ürün oluşturduktan sonra ürün sayfasının URL'sini yapıştır. Ziyaretçi bu linke gidip TL ödeme yaparak PDF'i indirir.</div>
       </div>
       <div class="form-full">
-        <label>Cover Image URL (optional)</label>
+        <label>Kapak Görseli URL (isteğe bağlı)</label>
         <input type="text" id="r-image" placeholder="https://...">
+        <div class="form-note">Harici bir görsel URL'si girin (Imgur, CDN vb.) veya boş bırakın.</div>
       </div>
     </div>
     <button class="btn-save" onclick="addReport()">Add Report</button>
@@ -221,6 +223,14 @@ textarea{min-height:100px}
     <p style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:20px">
       When you're ready, publish your changes to GitHub. Netlify will automatically rebuild and update the live site within ~30 seconds.
     </p>
+
+    <div style="background:var(--ink3);border:1px solid var(--rule2);padding:16px 20px;margin-bottom:20px;border-left:2px solid var(--red)">
+      <div style="font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--red);margin-bottom:10px">Shopier Hatırlatma</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7">
+        Rapor eklemeden önce Shopier'da ilgili ürünü oluşturduğunuzdan emin olun:<br>
+        <span style="color:var(--text3)">shopier.com → Ürünler → Yeni Ürün → Dijital Ürün → PDF yükle → Fiyat gir → Yayımla → Ürün sayfası URL'sini kopyala → Admin'e yapıştır</span>
+      </div>
+    </div>
     <div class="gh-section">
       <div class="gh-title">GitHub Settings</div>
       <div class="gh-fields">
