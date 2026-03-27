@@ -169,7 +169,7 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
 
 @media(max-width:900px){
   .two-col,.hakkinda-grid{grid-template-columns:1fr;gap:36px}
-  .photo-img{width:200px;height:200px}
+  .photo-img{width:100%;max-width:320px;height:auto}
   .photo-border{display:none}
   .sector-grid{grid-template-columns:1fr}
   nav .nav-r a:not(.nav-contact):not(#lang-btn){display:none}
@@ -198,16 +198,16 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
     <a href="raporlar.html" id="nav-raporlar">Raporlar</a>
     <button id="lang-btn" onclick="toggleLang()" style="border-left:1px solid var(--rule)">EN</button>
     <a href="/cdn-cgi/l/email-protection#8eeffde5e3ebceefe5fdefe5eafbe0f7efa0ede1e3" class="nav-contact" id="nav-contact">İletişim</a>
-    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menü">
+    <button class="hamburger" id="hamburger" aria-label="Menü">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#nedir" id="mob-nedir" onclick="closeMobileMenu()">Nedir?</a>
-  <a href="#hakkinda" id="mob-hakkinda" onclick="closeMobileMenu()">Hakkında</a>
+  <a href="#nedir" id="mob-nedir">Nedir?</a>
+  <a href="#hakkinda" id="mob-hakkinda">Hakkında</a>
   <a href="raporlar.html" id="mob-raporlar">Raporlar</a>
-  <button id="mob-lang" onclick="toggleLang();closeMobileMenu()">EN / TR</button>
+  <button id="mob-lang">EN / TR</button>
   <a href="mailto:askme@aksakdunya.com" class="mob-contact" id="mob-contact">İletişim</a>
 </div>
 
@@ -576,10 +576,24 @@ function toggleMobileMenu() {
   menu.classList.toggle('open');
   btn.classList.toggle('open');
 }
+window.toggleMobileMenu = toggleMobileMenu;
 
 function closeMobileMenu() {
   document.getElementById('mobile-menu').classList.remove('open');
   document.getElementById('hamburger').classList.remove('open');
 }
+window.closeMobileMenu = closeMobileMenu;
+
+// hamburger addEventListener
+document.addEventListener('DOMContentLoaded', function() {
+  var hb = document.getElementById('hamburger');
+  if (hb) hb.addEventListener('click', toggleMobileMenu);
+  var mobNedir = document.getElementById('mob-nedir');
+  if (mobNedir) mobNedir.addEventListener('click', closeMobileMenu);
+  var mobHakkinda = document.getElementById('mob-hakkinda');
+  if (mobHakkinda) mobHakkinda.addEventListener('click', closeMobileMenu);
+  var mobLang = document.getElementById('mob-lang');
+  if (mobLang) mobLang.addEventListener('click', function(){ toggleLang(); closeMobileMenu(); });
+});
 
 // ── INIT ───────────── 
