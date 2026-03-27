@@ -80,6 +80,7 @@ h1.hero-h span{color:var(--red)}
 .news-dots{display:flex;gap:5px;justify-content:center;padding:14px 0 20px}
 .news-dot{width:4px;height:4px;border-radius:50%;background:var(--rule2);cursor:pointer;transition:background 0.15s}
 .news-dot.active{background:var(--red)}
+.news-loading{padding:32px 5vw;font-family:'Space Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:0.1em}
 
 /* POPUP */
 .popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:500;align-items:center;justify-content:center;padding:20px}
@@ -171,13 +172,16 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
 
 <nav>
   <div class="nav-l">
-    <img class="nav-logo" src="nav-logo.png" alt="Aksak Dünya">
+    <picture>
+      <source srcset="nav-logo.webp" type="image/webp">
+      <img class="nav-logo" src="nav-logo.png" alt="Aksak Dünya">
+    </picture>
     <div class="nav-brand">Aksak <b>Dünya</b></div>
   </div>
   <div class="nav-r">
-    <a href="#nedir">Nedir?</a>
-    <a href="#hakkinda">Hakkında</a>
-    <a href="raporlar.html">Raporlar</a>
+    <a href="#nedir" id="nav-nedir">Nedir?</a>
+    <a href="#hakkinda" id="nav-hakkinda">Hakkında</a>
+    <a href="raporlar.html" id="nav-raporlar">Raporlar</a>
     <button id="lang-btn" onclick="toggleLang()" style="border-left:1px solid var(--rule)">EN</button>
     <a href="mailto:askme@aksakdunya.com" class="nav-contact" id="nav-contact">İletişim</a>
   </div>
@@ -201,50 +205,10 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
   </div>
   <div class="news-track-wrap">
     <div class="news-track" id="news-track">
-      <div class="news-card" onclick="openPopup(0)">
-        <div class="news-card-img-placeholder"><span>Görsel</span></div>
-        <div class="news-card-body">
-          <div class="news-cat">Rapor Duyurusu</div>
-          <div class="news-title">Türkiye İl Ekonomik Performans Raporu Serisi Yayımlandı</div>
-          <div class="news-excerpt">81 il için özgün endekslerle hazırlanan kapsamlı ekonomik analiz serisi kullanıma sunuldu.</div>
-          <div class="news-date">Mart 2026</div>
-        </div>
-      </div>
-      <div class="news-card" onclick="openPopup(1)">
-        <div class="news-card-img-placeholder"><span>Görsel</span></div>
-        <div class="news-card-body">
-          <div class="news-cat">Analiz</div>
-          <div class="news-title">Türkiye'nin Küreselleşmedeki Dışa Açılımı</div>
-          <div class="news-excerpt">MSC-EM 23 ülke karşılaştırması — büyüme, volatilite ve FDI performansı 2016–2024.</div>
-          <div class="news-date">Aralık 2025</div>
-        </div>
-      </div>
-      <div class="news-card" onclick="openPopup(2)">
-        <div class="news-card-img-placeholder"><span>Görsel</span></div>
-        <div class="news-card-body">
-          <div class="news-cat">Duyuru</div>
-          <div class="news-title">Sektörel Dönüşüm Endeksi Çalışması Başladı</div>
-          <div class="news-excerpt">Türkiye'nin sektör bazlı teknoloji yoğunluğu ve ihracat kabiliyeti üzerine yeni araştırma.</div>
-          <div class="news-date">Şubat 2026</div>
-        </div>
-      </div>
-      <div class="news-card" onclick="openPopup(3)">
-        <div class="news-card-img-placeholder"><span>Görsel</span></div>
-        <div class="news-card-body">
-          <div class="news-cat">Etkinlik</div>
-          <div class="news-title">Körfez Ülkeleri Yatırım Forumu Katılımı</div>
-          <div class="news-excerpt">GCC ülkelerinde yerelleşme ve doğrudan yabancı yatırım üzerine panel katılımı.</div>
-          <div class="news-date">Ocak 2026</div>
-        </div>
-      </div>
+      <div class="news-loading" id="news-loading">Yükleniyor…</div>
     </div>
   </div>
-  <div class="news-dots" id="news-dots">
-    <div class="news-dot active" onclick="scrollToCard(0)"></div>
-    <div class="news-dot" onclick="scrollToCard(1)"></div>
-    <div class="news-dot" onclick="scrollToCard(2)"></div>
-    <div class="news-dot" onclick="scrollToCard(3)"></div>
-  </div>
+  <div class="news-dots" id="news-dots"></div>
 </div>
 
 <div class="popup-overlay" id="popup-overlay" onclick="closePopupOutside(event)">
@@ -306,7 +270,10 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
   <h2 class="sec-title" id="title-hakkinda">Dr. Hakan Yurdakul</h2>
   <div class="hakkinda-grid">
     <div class="photo-wrap">
-      <img class="photo-img" src="photo.jpg" alt="Dr. Hakan Yurdakul">
+      <picture>
+        <source srcset="photo.webp" type="image/webp">
+        <img class="photo-img" src="photo.jpg" alt="Dr. Hakan Yurdakul">
+      </picture>
     </div>
     <div class="h-text">
       <div class="h-title" id="h-title">Uluslararası İş Geliştirici &nbsp;·&nbsp; Uygulamalı Ekonomist</div>
@@ -334,27 +301,17 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
 
 <footer>
   <div class="f-l">
-    <img class="f-logo" src="logo.png" alt="Aksak Dünya">
+    <picture>
+      <source srcset="logo.webp" type="image/webp">
+      <img class="f-logo" src="logo.png" alt="Aksak Dünya">
+    </picture>
     <span class="f-name">Aksak Dünya &nbsp;/&nbsp; Dr. Hakan Yurdakul</span>
   </div>
   <div class="f-r">&copy; 2026 aksakdunya.com</div>
 </footer>
 
 <script>
-const NEWS=[
-  {cat:'Report Release',title:'Turkey Provincial Economic Performance Report Series Published',date:'March 2026',excerpt:'A comprehensive economic analysis series covering all 81 provinces with original indices is now available.',body:`<p>A comprehensive analysis series comparing the resource quality, performance and transformation efficiency of all 81 provinces using original indices is now available.</p><p>Each provincial report, prepared on the basis of the RQI, PI, TEI and Pragmatism Indices, includes demographic analysis, sectoral typology and institutional quality assessment.</p>`,link:'raporlar.html',linkText:'View Reports'},
-  {cat:'Analysis',title:`Turkey's Global Opening in the Globalisation Era`,date:'December 2025',excerpt:'MSC-EM 23-country comparison — growth, volatility and FDI performance 2016–2024.',body:`<p>Turkey's growth, volatility and FDI performance during 2016–2024 was compared against 23 emerging market economies on the MSC-EM list.</p><p>Turkey ranked 8th in average growth while placing 2nd in volatility.</p>`,link:'#',linkText:'View Report'},
-  {cat:'Announcement',title:'Sectoral Transformation Index Study Launched',date:'February 2026',excerpt:`New research on Turkey's sector-based technology intensity and export capability is underway.`,body:`<p>A new index study has been launched to measure Turkey's sector-based technology intensity, export capability and competitiveness.</p><p>Publication is planned for the second quarter of 2026.</p>`,link:'#',linkText:'Coming Soon'},
-  {cat:'Event',title:'Gulf Countries Investment Forum Participation',date:'January 2026',excerpt:'Panel participation on localisation policies and foreign direct investment in GCC countries.',body:`<p>Panel participation was completed at an international forum on localisation policies and foreign direct investment in GCC countries.</p>`,link:'',linkText:''}
-];
-
-const NEWS_TR=[
-  {cat:'Rapor Duyurusu',title:'Türkiye İl Ekonomik Performans Raporu Serisi Yayımlandı',date:'Mart 2026',excerpt:'81 il için özgün endekslerle hazırlanan kapsamlı ekonomik analiz serisi kullanıma sunuldu.',body:`<p>81 ilin kaynak kalitesi, performans ve dönüşüm verimliliğini özgün endekslerle karşılaştıran kapsamlı analiz serisi kullanıma sunuldu.</p><p>KKE, PE, DVE ve Pragmatizm Endeksleri temelinde hazırlanan her il raporu; demografik analiz, sektörel tipoloji ve kurumsal kalite değerlendirmesi içermektedir.</p>`,link:'raporlar.html',linkText:'Raporları İncele'},
-  {cat:'Analiz',title:`Türkiye'nin Küreselleşmedeki Dışa Açılımı`,date:'Aralık 2025',excerpt:`MSC-EM 23 ülke karşılaştırması — büyüme, volatilite ve FDI performansı 2016–2024.`,body:`<p>MSC-EM listesindeki 23 gelişmekte olan piyasa ekonomisi arasında Türkiye'nin 2016–2024 dönemindeki büyüme, volatilite ve FDI performansı karşılaştırıldı.</p><p>Türkiye ortalama büyümede 8. sırada yer alırken volatilitede 2. sıraya yerleşti.</p>`,link:'#',linkText:'Raporu İncele'},
-  {cat:'Duyuru',title:`Sektörel Dönüşüm Endeksi Çalışması Başladı`,date:'Şubat 2026',excerpt:`Türkiye'nin sektör bazlı teknoloji yoğunluğu ve ihracat kabiliyeti üzerine yeni araştırma.`,body:`<p>Türkiye'nin sektör bazlı teknoloji yoğunluğu, ihracat kabiliyeti ve rekabet gücünü ölçen yeni bir endeks çalışması başlatıldı.</p><p>2026 yılı ikinci çeyreğinde yayımlanması planlanmaktadır.</p>`,link:'#',linkText:'Yakında'},
-  {cat:'Etkinlik',title:`Körfez Ülkeleri Yatırım Forumu Katılımı`,date:'Ocak 2026',excerpt:`GCC ülkelerinde yerelleşme ve doğrudan yabancı yatırım üzerine panel katılımı.`,body:`<p>GCC ülkelerinde yerelleşme politikaları ve doğrudan yabancı yatırım üzerine düzenlenen uluslararası foruma panel katılımı gerçekleştirildi.</p>`,link:'',linkText:''}
-];
-
+// ── LANGUAGE STRINGS ──────────────────────────────────────
 const TR={
   eyebrow:'Uluslararası İş Geliştirme &nbsp;·&nbsp; Uygulamalı Ekonomist',
   hero:`Aksaklık bir istisna değil, piyasaların yaygın gerçeğidir.<br><span>Sorun piyasa aksaklığı değil, bununla büyümektir.</span>`,
@@ -373,7 +330,9 @@ const TR={
   sg1:'Endüstriyel &amp; Teknoloji', si1:`İlaç · İnşaat malzemeleri · Makine · Savunma (silah hariç) · Tıbbi cihaz ve sarf malzemeleri · Yazılım`,
   sg2:'Tüketici &amp; Hizmet', si2:`Eğitim turizmi · Eğlence · FMCG · Gıda · Mobilya · Sağlık turizmi`,
   sg3:'Altyapı &amp; Finans', si3:`Finans · İnşaat · Lojistik ve ulaşım`,
-  liLink:'LinkedIn Profili', contact:'İletişim', popupClose:'Kapat ✕', lang:'EN'
+  liLink:'LinkedIn Profili', contact:'İletişim', popupClose:'Kapat ✕', lang:'EN',
+  navNedir:'Nedir?', navHakkinda:'Hakkında', navRaporlar:'Raporlar',
+  noNews:'Henüz haber yok.', loadingNews:'Yükleniyor…'
 };
 
 const EN={
@@ -394,86 +353,196 @@ const EN={
   sg1:'Industrial &amp; Technology', si1:`Pharmaceuticals · Construction materials · Machinery · Defence (excl. weapons) · Medical devices &amp; consumables · Software`,
   sg2:'Consumer &amp; Services', si2:`Education tourism · Entertainment · FMCG · Food · Furniture · Medical tourism`,
   sg3:'Infrastructure &amp; Finance', si3:`Finance · Construction · Logistics &amp; transportation`,
-  liLink:'LinkedIn Profile', contact:'Contact', popupClose:'Close ✕', lang:'TR'
+  liLink:'LinkedIn Profile', contact:'Contact', popupClose:'Close ✕', lang:'TR',
+  navNedir:'What is it?', navHakkinda:'About', navRaporlar:'Reports',
+  noNews:'No news yet.', loadingNews:'Loading…'
 };
 
-// ── POPUP ─────────────────────────────────────────────────
+// ── STATE ─────────────────────────────────────────────────
 let currentLang = 'TR';
+let newsData = []; // loaded from content.json
 
-function openPopup(i){
-  const d = currentLang === 'TR' ? NEWS_TR[i] : NEWS[i];
-  document.getElementById('popup-cat').textContent = d.cat;
-  document.getElementById('popup-title').textContent = d.title;
-  document.getElementById('popup-date').textContent = d.date;
-  document.getElementById('popup-body').innerHTML = d.body;
-  const lnk = document.getElementById('popup-link');
-  if(d.link && d.linkText){lnk.href=d.link; lnk.textContent=d.linkText; lnk.style.display='inline-flex';}
-  else{lnk.style.display='none';}
-  document.getElementById('popup-overlay').classList.add('open');
-  document.body.style.overflow='hidden';
+// ── CONTENT.JSON FETCH ───────────────────────────────────
+async function loadContent() {
+  try {
+    const res = await fetch('content.json?v=' + Date.now());
+    if (!res.ok) throw new Error('fetch failed');
+    const json = await res.json();
+    newsData = json.news || [];
+  } catch(e) {
+    // Fallback: empty — show "no news" state
+    newsData = [];
+  }
+  renderNews();
 }
-function closePopup(){document.getElementById('popup-overlay').classList.remove('open');document.body.style.overflow='';}
-function closePopupOutside(e){if(e.target===document.getElementById('popup-overlay'))closePopup();}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup();});
 
-// ── NEWS CAROUSEL ─────────────────────────────────────────
-const track = document.getElementById('news-track');
-const dots = document.querySelectorAll('.news-dot');
-let isDragging=false, startX=0, scrollLeft=0;
-track.addEventListener('mousedown',e=>{isDragging=true;startX=e.pageX-track.offsetLeft;scrollLeft=track.scrollLeft;track.style.cursor='grabbing';});
-['mouseleave','mouseup'].forEach(ev=>track.addEventListener(ev,()=>{isDragging=false;track.style.cursor='grab';}));
-track.addEventListener('mousemove',e=>{if(!isDragging)return;e.preventDefault();track.scrollLeft=scrollLeft-(e.pageX-track.offsetLeft-startX);});
-track.addEventListener('scroll',()=>{const idx=Math.round(track.scrollLeft/302);dots.forEach((d,i)=>d.classList.toggle('active',i===idx));});
-function scrollToCard(i){track.scrollTo({left:i*302,behavior:'smooth'});}
+// ── NEWS RENDER ───────────────────────────────────────────
+function renderNews() {
+  const track = document.getElementById('news-track');
+  const dotsEl = document.getElementById('news-dots');
+  const lang = currentLang;
 
-// ── LANGUAGE TOGGLE ───────────────────────────────────────
-function toggleLang(){
-  currentLang = currentLang === 'TR' ? 'EN' : 'TR';
-  const d = currentLang === 'EN' ? EN : TR;
-  document.documentElement.lang = currentLang === 'EN' ? 'en' : 'tr';
-  document.getElementById('lang-btn').textContent = d.lang;
-  document.getElementById('h-eyebrow').innerHTML = d.eyebrow;
-  document.getElementById('h-main').innerHTML = d.hero;
-  document.getElementById('news-label').innerHTML = d.newsLabel;
-  document.getElementById('news-all').innerHTML = d.newsAll;
-  document.getElementById('tag-nedir').textContent = d.tagNedir;
-  document.getElementById('title-nedir').textContent = d.titleNedir;
-  document.getElementById('nd-p1').innerHTML = d.ndp1;
-  document.getElementById('nd-p2').innerHTML = d.ndp2;
-  document.getElementById('nd-p3').innerHTML = d.ndp3;
-  document.getElementById('sl2').innerHTML = d.sl2;
-  document.getElementById('st2').textContent = d.st2;
-  document.getElementById('sl1').textContent = d.sl1;
-  document.getElementById('st1').innerHTML = d.st1;
-  document.getElementById('ss1').innerHTML = d.ss1;
-  document.getElementById('sl3').textContent = d.sl3;
-  document.getElementById('st3').innerHTML = d.st3;
-  document.getElementById('ss3').innerHTML = d.ss3;
-  document.getElementById('tag-hakkinda').textContent = d.tagHak;
-  document.getElementById('title-hakkinda').textContent = d.titleHak;
-  document.getElementById('h-title').innerHTML = d.htitle;
-  document.getElementById('h-p1').textContent = d.hp1;
-  document.getElementById('h-p2').textContent = d.hp2;
-  document.getElementById('sg1').innerHTML = d.sg1;
-  document.getElementById('si1').textContent = d.si1;
-  document.getElementById('sg2').innerHTML = d.sg2;
-  document.getElementById('si2').textContent = d.si2;
-  document.getElementById('sg3').innerHTML = d.sg3;
-  document.getElementById('si3').textContent = d.si3;
-  document.getElementById('li-link').textContent = d.liLink;
-  document.getElementById('nav-contact').textContent = d.contact;
-  document.getElementById('popup-close-btn').textContent = d.popupClose;
-  // Swap news cards
-  const newsData = currentLang === 'EN' ? NEWS : NEWS_TR;
-  const cards = track.querySelectorAll('.news-card');
-  newsData.forEach((item,i)=>{
-    if(!cards[i]) return;
-    cards[i].querySelector('.news-cat').textContent = item.cat;
-    cards[i].querySelector('.news-title').textContent = item.title;
-    cards[i].querySelector('.news-excerpt').textContent = item.excerpt;
-    cards[i].querySelector('.news-date').textContent = item.date;
+  // Remove loading indicator
+  const loading = document.getElementById('news-loading');
+  if (loading) loading.remove();
+
+  // Clear existing cards (preserve loading div removal)
+  track.innerHTML = '';
+  dotsEl.innerHTML = '';
+
+  if (!newsData.length) {
+    track.innerHTML = `<div class="news-loading">${lang === 'TR' ? TR.noNews : EN.noNews}</div>`;
+    return;
+  }
+
+  newsData.forEach((item, i) => {
+    const cat     = lang === 'TR' ? (item.cat_tr || item.cat) : item.cat;
+    const title   = lang === 'TR' ? (item.title_tr || item.title) : item.title;
+    const excerpt = lang === 'TR' ? (item.excerpt_tr || item.excerpt) : item.excerpt;
+    const date    = lang === 'TR' ? (item.date_tr || item.date) : item.date;
+
+    const imgHtml = item.image
+      ? `<img class="news-card-img" src="${item.image}" alt="${title}" loading="lazy">`
+      : `<div class="news-card-img-placeholder"><span>${lang === 'TR' ? 'Görsel' : 'Image'}</span></div>`;
+
+    const card = document.createElement('div');
+    card.className = 'news-card';
+    card.onclick = () => openPopup(i);
+    card.innerHTML = `
+      ${imgHtml}
+      <div class="news-card-body">
+        <div class="news-cat">${cat}</div>
+        <div class="news-title">${title}</div>
+        <div class="news-excerpt">${excerpt}</div>
+        <div class="news-date">${date}</div>
+      </div>`;
+    track.appendChild(card);
+
+    const dot = document.createElement('div');
+    dot.className = 'news-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => scrollToCard(i);
+    dotsEl.appendChild(dot);
+  });
+
+  initCarousel();
+}
+
+// ── POPUP ─────────────────────────────────────────────────
+function openPopup(i) {
+  const item = newsData[i];
+  if (!item) return;
+  const lang = currentLang;
+  const cat   = lang === 'TR' ? (item.cat_tr   || item.cat)   : item.cat;
+  const title = lang === 'TR' ? (item.title_tr  || item.title) : item.title;
+  const date  = lang === 'TR' ? (item.date_tr   || item.date)  : item.date;
+  const body  = lang === 'TR' ? (item.body_tr   || item.body)  : item.body;
+  const lText = lang === 'TR' ? (item.linkText_tr || item.linkText) : item.linkText;
+
+  document.getElementById('popup-cat').textContent   = cat;
+  document.getElementById('popup-title').textContent = title;
+  document.getElementById('popup-date').textContent  = date;
+  document.getElementById('popup-body').innerHTML    = body;
+
+  const lnk = document.getElementById('popup-link');
+  if (item.link && lText) {
+    lnk.href = item.link;
+    lnk.textContent = lText;
+    lnk.style.display = 'inline-flex';
+  } else {
+    lnk.style.display = 'none';
+  }
+  document.getElementById('popup-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup() {
+  document.getElementById('popup-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closePopupOutside(e) {
+  if (e.target === document.getElementById('popup-overlay')) closePopup();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+
+// ── CAROUSEL ─────────────────────────────────────────────
+function initCarousel() {
+  const track = document.getElementById('news-track');
+  const dots  = document.querySelectorAll('.news-dot');
+  let isDragging = false, startX = 0, scrollLeft = 0;
+
+  track.addEventListener('mousedown', e => {
+    isDragging = true;
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    track.style.cursor = 'grabbing';
+  });
+  ['mouseleave','mouseup'].forEach(ev =>
+    track.addEventListener(ev, () => { isDragging = false; track.style.cursor = 'grab'; })
+  );
+  track.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    e.preventDefault();
+    track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX);
+  });
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / 302);
+    document.querySelectorAll('.news-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
   });
 }
+
+function scrollToCard(i) {
+  document.getElementById('news-track').scrollTo({ left: i * 302, behavior: 'smooth' });
+}
+
+// ── LANGUAGE TOGGLE ───────────────────────────────────────
+function applyLang() {
+  const d = currentLang === 'EN' ? EN : TR;
+  document.documentElement.lang = currentLang === 'EN' ? 'en' : 'tr';
+  document.getElementById('lang-btn').textContent   = d.lang;
+  document.getElementById('h-eyebrow').innerHTML    = d.eyebrow;
+  document.getElementById('h-main').innerHTML       = d.hero;
+  document.getElementById('news-label').innerHTML   = d.newsLabel;
+  document.getElementById('news-all').innerHTML     = d.newsAll;
+  document.getElementById('tag-nedir').textContent  = d.tagNedir;
+  document.getElementById('title-nedir').textContent = d.titleNedir;
+  document.getElementById('nd-p1').innerHTML        = d.ndp1;
+  document.getElementById('nd-p2').innerHTML        = d.ndp2;
+  document.getElementById('nd-p3').innerHTML        = d.ndp3;
+  document.getElementById('sl2').innerHTML          = d.sl2;
+  document.getElementById('st2').textContent        = d.st2;
+  document.getElementById('sl1').textContent        = d.sl1;
+  document.getElementById('st1').innerHTML          = d.st1;
+  document.getElementById('ss1').innerHTML          = d.ss1;
+  document.getElementById('sl3').textContent        = d.sl3;
+  document.getElementById('st3').innerHTML          = d.st3;
+  document.getElementById('ss3').innerHTML          = d.ss3;
+  document.getElementById('tag-hakkinda').textContent   = d.tagHak;
+  document.getElementById('title-hakkinda').textContent = d.titleHak;
+  document.getElementById('h-title').innerHTML      = d.htitle;
+  document.getElementById('h-p1').textContent       = d.hp1;
+  document.getElementById('h-p2').textContent       = d.hp2;
+  document.getElementById('sg1').innerHTML          = d.sg1;
+  document.getElementById('si1').textContent        = d.si1;
+  document.getElementById('sg2').innerHTML          = d.sg2;
+  document.getElementById('si2').textContent        = d.si2;
+  document.getElementById('sg3').innerHTML          = d.sg3;
+  document.getElementById('si3').textContent        = d.si3;
+  document.getElementById('li-link').textContent    = d.liLink;
+  document.getElementById('nav-contact').textContent = d.contact;
+  document.getElementById('nav-nedir').textContent  = d.navNedir;
+  document.getElementById('nav-hakkinda').textContent = d.navHakkinda;
+  document.getElementById('nav-raporlar').textContent = d.navRaporlar;
+  document.getElementById('popup-close-btn').textContent = d.popupClose;
+  renderNews();
+}
+
+function toggleLang() {
+  currentLang = currentLang === 'TR' ? 'EN' : 'TR';
+  applyLang();
+}
+
+// ── INIT ──────────────────────────────────────────────────
+loadContent();
 </script>
 </body>
 </html>
