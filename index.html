@@ -155,12 +155,26 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
 .f-name{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)}
 .f-r{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:0.08em;color:var(--text3)}
 
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0 16px;height:56px;border-left:1px solid var(--rule)}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text2);transition:all 0.25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(12,12,12,0.99);border-bottom:1px solid var(--rule);z-index:199;flex-direction:column;padding:8px 0}
+.mobile-menu.open{display:flex}
+.mobile-menu a,.mobile-menu button{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text2);background:none;border:none;cursor:pointer;padding:14px 5vw;text-decoration:none;border-bottom:1px solid var(--rule);display:block;text-align:left;transition:color 0.15s}
+.mobile-menu a:hover,.mobile-menu button:hover{color:#fff}
+.mobile-menu .mob-contact{background:var(--red);color:#fff}
+
 @media(max-width:900px){
   .two-col,.hakkinda-grid{grid-template-columns:1fr;gap:36px}
   .photo-img{width:200px;height:200px}
   .photo-border{display:none}
   .sector-grid{grid-template-columns:1fr}
   nav .nav-r a:not(.nav-contact):not(#lang-btn){display:none}
+  .hamburger{display:flex}
+  .nav-contact{display:none!important}
 }
 @media(max-width:580px){
   .news-card{flex:0 0 260px}
@@ -183,9 +197,19 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
     <a href="#hakkinda" id="nav-hakkinda">Hakkında</a>
     <a href="raporlar.html" id="nav-raporlar">Raporlar</a>
     <button id="lang-btn" onclick="toggleLang()" style="border-left:1px solid var(--rule)">EN</button>
-    <a href="mailto:askme@aksakdunya.com" class="nav-contact" id="nav-contact">İletişim</a>
+    <a href="/cdn-cgi/l/email-protection#8eeffde5e3ebceefe5fdefe5eafbe0f7efa0ede1e3" class="nav-contact" id="nav-contact">İletişim</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#nedir" id="mob-nedir" onclick="closeMobileMenu()">Nedir?</a>
+  <a href="#hakkinda" id="mob-hakkinda" onclick="closeMobileMenu()">Hakkında</a>
+  <a href="raporlar.html" id="mob-raporlar">Raporlar</a>
+  <button id="mob-lang" onclick="toggleLang();closeMobileMenu()">EN / TR</button>
+  <a href="mailto:askme@aksakdunya.com" class="mob-contact" id="mob-contact">İletişim</a>
+</div>
 
 <section class="hero">
   <video class="hero-video" autoplay muted loop playsinline>
@@ -310,7 +334,7 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
   <div class="f-r">&copy; 2026 aksakdunya.com</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── LANGUAGE STRINGS ──────────────────────────────────────
 const TR={
   eyebrow:'Uluslararası İş Geliştirme &nbsp;·&nbsp; Uygulamalı Ekonomist',
@@ -533,6 +557,11 @@ function applyLang() {
   document.getElementById('nav-hakkinda').textContent = d.navHakkinda;
   document.getElementById('nav-raporlar').textContent = d.navRaporlar;
   document.getElementById('popup-close-btn').textContent = d.popupClose;
+  // Mobil menü
+  document.getElementById('mob-nedir').textContent   = d.navNedir;
+  document.getElementById('mob-hakkinda').textContent = d.navHakkinda;
+  document.getElementById('mob-raporlar').textContent = d.navRaporlar;
+  document.getElementById('mob-contact').textContent  = d.contact;
   renderNews();
 }
 
@@ -541,8 +570,16 @@ function toggleLang() {
   applyLang();
 }
 
-// ── INIT ──────────────────────────────────────────────────
-loadContent();
-</script>
-</body>
-</html>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+// ── INIT ───────────── 
