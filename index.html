@@ -196,7 +196,7 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
     <a href="#nedir" id="nav-nedir">Nedir?</a>
     <a href="#hakkinda" id="nav-hakkinda">Hakkında</a>
     <a href="raporlar.html" id="nav-raporlar">Raporlar</a>
-    <button id="lang-btn" onclick="toggleLang()" style="border-left:1px solid var(--rule)">EN</button>
+    <button id="lang-btn" style="border-left:1px solid var(--rule)">EN</button>
     <a href="/cdn-cgi/l/email-protection#8eeffde5e3ebceefe5fdefe5eafbe0f7efa0ede1e3" class="nav-contact" id="nav-contact">İletişim</a>
     <button class="hamburger" id="hamburger" aria-label="Menü">
       <span></span><span></span><span></span>
@@ -235,10 +235,10 @@ footer{background:var(--ink);border-top:1px solid var(--rule);padding:28px 5vw;d
   <div class="news-dots" id="news-dots"></div>
 </div>
 
-<div class="popup-overlay" id="popup-overlay" onclick="closePopupOutside(event)">
+<div class="popup-overlay" id="popup-overlay">
   <div class="popup-box">
     <div class="popup-top-bar"></div>
-    <button class="popup-close" onclick="closePopup()" id="popup-close-btn">Kapat ✕</button>
+    <button class="popup-close" id="popup-close-btn">Kapat ✕</button>
     <div class="popup-inner">
       <div class="popup-cat" id="popup-cat"></div>
       <div class="popup-title" id="popup-title"></div>
@@ -586,14 +586,29 @@ window.closeMobileMenu = closeMobileMenu;
 
 // hamburger addEventListener
 document.addEventListener('DOMContentLoaded', function() {
+  // Hamburger
   var hb = document.getElementById('hamburger');
   if (hb) hb.addEventListener('click', toggleMobileMenu);
+  // Mobil menü linkleri
   var mobNedir = document.getElementById('mob-nedir');
   if (mobNedir) mobNedir.addEventListener('click', closeMobileMenu);
   var mobHakkinda = document.getElementById('mob-hakkinda');
   if (mobHakkinda) mobHakkinda.addEventListener('click', closeMobileMenu);
   var mobLang = document.getElementById('mob-lang');
   if (mobLang) mobLang.addEventListener('click', function(){ toggleLang(); closeMobileMenu(); });
+  // Dil butonu
+  var langBtn = document.getElementById('lang-btn');
+  if (langBtn) langBtn.addEventListener('click', toggleLang);
+  // Popup kapat
+  var popupCloseBtn = document.getElementById('popup-close-btn');
+  if (popupCloseBtn) popupCloseBtn.addEventListener('click', closePopup);
+  var popupOverlay = document.getElementById('popup-overlay');
+  if (popupOverlay) popupOverlay.addEventListener('click', closePopupOutside);
 });
 
-// ── INIT ───────────── 
+
+loadContent();
+applyLang();
+</script>
+</body>
+</html>
