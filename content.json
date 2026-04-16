@@ -178,21 +178,21 @@
       "paid": true,
       "price": "400",
       "link": "https://shopier.com/aksakdunya/45658002",
-      "image": ""
+      "image": "raporlar/news_uae_logistics.jpg"
     },
     {
       "id": 2001,
-      "title": "TURKEY FINTECH ECOSYSTEM AND GROWTH: SUPPLY & DEMAND ANALYSIS AND GROWTH PROJECTIONS 2025-2030",
-      "title_tr": "TÃRKÄ°YE FÄ°NTECH EKOSÄ°STEMÄ° VE BÃYÃME: ARZ & TALEP ANALÄ°ZÄ° VE BÃYÃME PROJEKSÄ°YONLARI 2025-2030",
-      "desc": "Analysis of Turkey's fintech ecosystem covering 624 companies, a $424B serviceable market, take rate gap (0.57% vs 1.70% global average), and revenue projections to 2030.",
-      "desc_tr": "624 Åirket, 424 milyar dolarlÄ±k servislenebilir pazar, take rate aÃ§Ä±ÄÄ± (%0,57 vs %1,70 kÃ¼resel ortalama) ve 2030 gelir projeksiyonlarÄ±nÄ± kapsayan TÃ¼rkiye fintech ekosistemi analizi.",
+      "title": "Turkiye Fintech Ecosystem and Growth: Supply & Demand Analysis and Growth Projections 2025-2030",
+      "title_tr": "Türkiye Fintech Ekosistemi ve Büyüme: Arz & Talep Analizi ve Büyüme Projeksiyonları 2025-2030",
+      "desc": "An analysis of Turkiye’s fintech ecosystem covering 624 fintech companies, a $424 billion serviceable market, the effective commission gap between emerging and developed markets (0.57% vs. 1.70% global average), and revenue projections through 2030.",
+      "desc_tr": "624 fintech şirketi, 424 milyar dolarlık servislenebilir pazar, gelişmekte olan ve gelişmiş pazarlarla efektif komisyon farkı açığı (%0,57 vs %1,70 küresel ortalama) ve 2030 gelir projeksiyonlarını kapsayan Türkiye fintech ekosistemi analizi.",
       "category": "sektor",
       "reportLang": "tr",
       "date": "Nisan 2026",
       "paid": true,
       "price": "1000",
       "link": "https://shopier.com/aksakdunya",
-      "image": "raporlar/fintech_cover.jpg"
+      "image": "raporlar/news_fintech_tr.jpg"
     },
     {
       "id": 3001,
