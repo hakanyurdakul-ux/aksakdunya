@@ -140,17 +140,17 @@
   "reports": [
     {
       "id": 1001,
-      "title": "IRAQ'S STRUCTURAL EXPOSURE AND THE KURDISTAN REGIONAL GOVERNMENT'S STABILITY PREMIUM",
-      "title_tr": "IRAK'IN YAPISAL KIRILGANLIKLARI VE KUZEY IRAK BÃLGESEL YÃNETÄ°MÄ°'NÄ°N Ä°STÄ°KRAR PRÄ°MÄ°",
+      "title": "Iraq's Structural Exposure and The KRG's Stability Premium",
+      "title_tr": "Irak'ın Yapısal Kırılganlıkları ve Kuzey Irak Yönetiminin İstikrar Avantajı",
       "desc": "An integrated economic analysis examining Iraq's oil-dependent macrostructure, import exposure, and the Kurdistan Regional Government's relative stability premium. Covers GDP composition, fiscal vulnerabilities, trade corridors, and product-level localization and reexport opportunities for Turkish businesses.",
-      "desc_tr": "Irak'Ä±n petro-baÄÄ±mlÄ± makroekonomik yapÄ±sÄ±nÄ±, ithalat kÄ±rÄ±lganlÄ±klarÄ±nÄ± ve Kuzey Irak BÃ¶lgesel YÃ¶netimi'nin gÃ¶reli istikrar primini inceleyen entegre ekonomik analiz. GSYÄ°H bileÅimi, mali aÃ§Ä±klar, ticaret koridorlarÄ± ve TÃ¼rk iÅletmeleri iÃ§in yerelleÅtirme ve yeniden ihracat fÄ±rsatlarÄ±nÄ± kapsar.",
+      "desc_tr": "Irak'ın petro-bağımlı makroekonomik yapısını, ithalat kırılganlıklarını ve Kuzey Irak Bölgesel Yönetimi'nin göreli istikrarını inceleyen entegre ekonomik analiz. Rapor; GSYİH bileşimi, mali açıklar, ticaret koridorları ve Türk işletmeleri için yerelleştirme ve yeniden ihracat fırsatlarını kapsar.",
       "category": "ulke",
       "reportLang": "en",
       "date": "January 2026",
       "paid": true,
       "price": "400",
       "link": "https://shopier.com/aksakdunya",
-      "image": ""
+      "image": "raporlar/news_iraq_krg.jpg"
     },
     {
       "id": 1002,
