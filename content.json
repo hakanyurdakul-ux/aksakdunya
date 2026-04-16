@@ -53,8 +53,8 @@
     },
     {
       "id": 9003,
-      "cat": "",
-      "cat_tr": "",
+      "cat": "Report Release",
+      "cat_tr": "Rapor Duyurusu",
       "title": "FROM TRANSIT TO PLATFORM: KSA NON-OIL REEXPORT STRATEGY 2025–2030",
       "title_tr": "TRANSİTTEN PLATFORMA: KSA PETROL DIŞI YENİDEN İHRACAT STRATEJİSİ 2025–2030",
       "excerpt": "Available for purchase — click to learn more.",
@@ -66,7 +66,7 @@
       "link": "https://shopier.com/aksakdunya",
       "linkText": "Purchase Report",
       "linkText_tr": "Raporu Satın Al",
-      "image": "raporlar/from-transit-to.png"
+      "image": "raporlar/news_ksa_reexport.jpg"
     },
     {
       "id": 9004,
