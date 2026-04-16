@@ -53,8 +53,8 @@
     },
     {
       "id": 9004,
-      "cat": "Report",
-      "cat_tr": "Rapor",
+      "cat": "",
+      "cat_tr": "",
       "title": "FROM HUB TO NETWORK: UAE DISTRIBUTED LOGISTICS PLATFORM STRATEGY",
       "title_tr": "MERKEZDEN AĞA: BAE DAĞITIK LOJİSTİK PLATFORM STRATEJİSİ",
       "excerpt": "Available for purchase — click to learn more.",
@@ -66,7 +66,7 @@
       "link": "https://shopier.com/aksakdunya",
       "linkText": "Purchase Report",
       "linkText_tr": "Raporu Satın Al",
-      "image": ""
+      "image": "raporlar/from-hub-to.png"
     },
     {
       "id": 9005,
