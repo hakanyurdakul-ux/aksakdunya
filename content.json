@@ -19,8 +19,8 @@
     },
     {
       "id": 9002,
-      "cat": "Report",
-      "cat_tr": "Rapor",
+      "cat": "",
+      "cat_tr": "",
       "title": "IRAQ'S STRUCTURAL EXPOSURE AND THE KRG'S STABILITY PREMIUM",
       "title_tr": "IRAK'IN YAPISAL KIRILGANLIKLARI VE KRG'NİN İSTİKRAR PRİMİ",
       "excerpt": "Available for purchase — click to learn more.",
@@ -32,12 +32,12 @@
       "link": "https://shopier.com/aksakdunya",
       "linkText": "Purchase Report",
       "linkText_tr": "Raporu Satın Al",
-      "image": ""
+      "image": "raporlar/iraqs_structural.png"
     },
     {
       "id": 9003,
-      "cat": "Report",
-      "cat_tr": "Rapor",
+      "cat": "",
+      "cat_tr": "",
       "title": "FROM TRANSIT TO PLATFORM: KSA NON-OIL REEXPORT STRATEGY 2025–2030",
       "title_tr": "TRANSİTTEN PLATFORMA: KSA PETROL DIŞI YENİDEN İHRACAT STRATEJİSİ 2025–2030",
       "excerpt": "Available for purchase — click to learn more.",
@@ -49,7 +49,7 @@
       "link": "https://shopier.com/aksakdunya",
       "linkText": "Purchase Report",
       "linkText_tr": "Raporu Satın Al",
-      "image": ""
+      "image": "raporlar/from-transit-to.png"
     },
     {
       "id": 9004,
