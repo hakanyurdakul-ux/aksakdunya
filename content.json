@@ -2,8 +2,8 @@
   "news": [
     {
       "id": 9001,
-      "cat": "Report",
-      "cat_tr": "Rapor",
+      "cat": "Report Release",
+      "cat_tr": "Rapor Duyurusu",
       "title": "Turkey Fintech Ecosystem & Growth 2025–2030",
       "title_tr": "Türkiye Fintech Ekosistemi ve Büyüme 2025–2030",
       "excerpt": "Supply-demand analysis of Turkey's $424B fintech market with projections to 2030.",
@@ -15,12 +15,12 @@
       "link": "https://shopier.com/aksakdunya",
       "linkText": "Purchase Report",
       "linkText_tr": "Raporu Satın Al",
-      "image": "raporlar/fintech_cover.jpg"
+      "image": "raporlar/news_fintech_tr.jpg"
     },
     {
       "id": 9002,
-      "cat": "Report",
-      "cat_tr": "Rapor",
+      "cat": "",
+      "cat_tr": "",
       "title": "Iraq's Structural Exposure and the KRG's Stability Premium",
       "title_tr": "Irak'ın Yapısal Kırılganlıkları ve Kuzey Irak Yönetiminin İstikrar Avantajı",
       "excerpt": "Available for purchase — click to learn more.",
@@ -32,12 +32,12 @@
       "link": "https://shopier.com/aksakdunya",
       "linkText": "Purchase Report",
       "linkText_tr": "Raporu Satın Al",
-      "image": ""
+      "image": "raporlar/news_iraq_krg.jpg"
     },
     {
       "id": 9003,
-      "cat": "Report",
-      "cat_tr": "Rapor",
+      "cat": "",
+      "cat_tr": "Rapor Duyurusu",
       "title": "From Transit to Platform: KSA Non-Oil Reexport Strategy 2025–2030",
       "title_tr": "Transitten Platforma: KSA Petrol Dışı Yeniden İhracat Stratejisi 2025–2030",
       "excerpt": "Available for purchase — click to learn more.",
@@ -49,12 +49,12 @@
       "link": "https://shopier.com/aksakdunya",
       "linkText": "Purchase Report",
       "linkText_tr": "Raporu Satın Al",
-      "image": ""
+      "image": "raporlar/news_ksa_reexport.jpg"
     },
     {
       "id": 9004,
-      "cat": "Report",
-      "cat_tr": "Rapor",
+      "cat": "",
+      "cat_tr": "Rapor Duyurusu",
       "title": "From Hub to Network: UAE Distributed Logistics Platform Strategy",
       "title_tr": "Merkezden Ağa: BAE Dağıtık Lojistik Platform Stratejisi",
       "excerpt": "Available for purchase — click to learn more.",
@@ -66,7 +66,7 @@
       "link": "https://shopier.com/aksakdunya",
       "linkText": "Purchase Report",
       "linkText_tr": "Raporu Satın Al",
-      "image": ""
+      "image": "raporlar/news_uae_logistics.jpg"
     }
   ],
   "reports": [
