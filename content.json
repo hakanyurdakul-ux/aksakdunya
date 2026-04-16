@@ -2,10 +2,10 @@
   "news": [
     {
       "id": 9001,
-      "cat": "Report",
-      "cat_tr": "Rapor",
-      "title": "NEW REPORT: Turkey Fintech Ecosystem & Growth 2025–2030",
-      "title_tr": "YENİ RAPOR: Türkiye Fintech Ekosistemi ve Büyüme 2025–2030",
+      "cat": "Report Release",
+      "cat_tr": "Rapor Duyurusu",
+      "title": "TURKIYE'S FONTECH ECOSYSTEM & GROWTH 2025–2030",
+      "title_tr": "TÜRKİYE FINTECH EKOSİSTEMİ VE BÜYÜME 2025–2030",
       "excerpt": "Supply-demand analysis of Turkey's $424B fintech market with projections to 2030.",
       "excerpt_tr": "Türkiye'nin 424 milyar dolarlık fintech pazarının arz-talep analizi ve 2030 projeksiyonları.",
       "date": "April 2026",
@@ -101,23 +101,6 @@
       "linkText": "Purchase Report",
       "linkText_tr": "Raporu Satın Al",
       "image": ""
-    },
-    {
-      "id": 9007,
-      "cat": "Report",
-      "cat_tr": "Rapor",
-      "title": "NEW: Adana — Economic Performance Report",
-      "title_tr": "YENİ: Adana — Ekonomik Performans Raporu",
-      "excerpt": "Economic performance and transformation efficiency analysis for Adana province. Investment incentive zone: 2. Akdeniz Bö...",
-      "excerpt_tr": "Adana ili ekonomik performans ve dönüşüm verimliliği analizi. Yatırım teşvik 2. Bölge. Akdeniz Bölgesi....",
-      "date": "April 2026",
-      "date_tr": "Nisan 2026",
-      "body": "<p>Adana ili ekonomik performans ve dönüşüm verimliliği analizi. Yatırım teşvik 2. Bölge. Akdeniz Bölgesi.</p>",
-      "body_tr": "<p>Adana ili ekonomik performans ve dönüşüm verimliliği analizi. Yatırım teşvik 2. Bölge. Akdeniz Bölgesi.</p>",
-      "link": "https://shopier.com/aksakdunya",
-      "linkText": "Purchase Report",
-      "linkText_tr": "Raporu Satın Al",
-      "image": "raporlar/Adana - Ekonomik Performans ve Dönüşüm Verimliliği Raporu.pdf_cover.jpg"
     },
     {
       "id": 9008,
