@@ -1,6 +1,23 @@
 {
   "news": [
     {
+      "id": 1776339330030,
+      "cat": "Report Release",
+      "cat_tr": "Rapor Duyurusu",
+      "title": "PROVINCE-BASED AND COMPARATIVE ECONOMIC PERFORMANCE",
+      "title_tr": "İL BAZLI VE KARŞILAŞTIRMALI EKONOMİK PERFORMANS",
+      "date": "",
+      "date_tr": "",
+      "excerpt": "Economic performance and projection reports for all 81 provinces covering the 2013–2025 period",
+      "excerpt_tr": "81 il için ayrı ayrı düzenlemiş 2013-2025 dönemini kapsayan ekonomik performans ve projeksiyon raporları.",
+      "body": "<p>Economic performance and projection reports for all 81 provinces covering the 2013–2025 period<p>",
+      "body_tr": "<p>81 il için ayrı ayrı düzenlemiş 2013-2025 dönemini kapsayan ekonomik performans ve projeksiyon raporları<p>",
+      "link": "",
+      "linkText": "",
+      "linkText_tr": "",
+      "image": "raporlar/il-bazli-dve.png"
+    },
+    {
       "id": 9001,
       "cat": "Report Release",
       "cat_tr": "Rapor Duyurusu",
